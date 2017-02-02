@@ -8,6 +8,7 @@
 
 #include "Controller.hpp"
 #include <iostream>
+#include <sstream>
 
 Controller :: Controller()
 {
@@ -36,38 +37,47 @@ void Controller :: testAt()
 {
     cout << "at test"<<endl;
     int index = getSafeInt("Pleas enter an index to test at at");
-    cout << test.at(index)<<endl;
+    cout<<"testing at at an index of: "<<index<<endl;
+    printResult(charToString(test.at(index)));
 }
 
 void Controller :: testSize()
 {
     cout<<"size test"<<endl;
-    cout << test.size() << endl;
+    cout<<"testing size of: "<<test<<endl;
+    printResult(to_string(test.size()));
 }
 void Controller:: testEmpty()
 {
     cout<<"empty test"<<endl;
-    cout<<test.empty()<<endl;
+    cout<<"testing empty on: " << test<<endl;
+    string result = "false";
+    if(test.empty())
+    {
+        result = "true";
+    }
+    printResult(result);
 }
 void Controller :: testSubString()
 {
     cout<<"substinrg test"<<endl;
     int index = getSafeInt("Please enter an index to test substring at");
-    cout<<"testing substring at index of"<<index<<endl;
-    cout<<test.substr(4)<<endl;
+    cout<<"testing substring at an index of: "<<index<<endl;
+    printResult(test.substr(index));
 }
 void Controller :: testCompare()
 {
     cout<<"test compare"<<endl<<"please enter a string to compare against";
     string compare;
     cin>>compare;
-    cout<<test.compare(compare)<<endl;
+    cout<<"testing compare with a string called: "<<compare<<endl;
+    printResult(to_string(test.compare(compare)));
 }
 void Controller:: testBrakets()
 {
     cout<<"testing brakets"<<endl;
     int index = getSafeInt("Please enter an index to test brakets at");
-    cout<<test[index]<<endl;
+    printResult(charToString(test[index]));
 }
 bool Controller::testInt(int toTest)
 {
@@ -86,4 +96,17 @@ int Controller::getSafeInt(string question)
 void Controller::addLine()
 {
     cout<<endl;
+}
+void Controller::printResult(string result)
+{
+    cout <<"Result: " <<result<<endl;
+}
+string Controller::charToString(char charecter)
+{
+    string target;
+    stringstream stream;
+    stream << charecter;
+    stream>>target;
+    
+    return target;
 }

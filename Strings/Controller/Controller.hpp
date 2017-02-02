@@ -26,6 +26,8 @@ private:
     bool testInt(int test);
     int getSafeInt(string question);
     void addLine();
+    void printResult(string result);
+    string charToString(char charecter);
     
 public:
     void start();
