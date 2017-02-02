@@ -23,6 +23,9 @@ private:
     void testSubString();
     void testCompare();
     void testBrakets();
+    bool testInt(int test);
+    int getSafeInt(string question);
+    void addLine();
     
 public:
     void start();
